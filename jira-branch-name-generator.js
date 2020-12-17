@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @author       You
-// @match        https://*.atlassian.net/browse/*
+// @match        https://jira.*/browse/*
 // @require http://code.jquery.com/jquery-latest.js
 // @require https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js
 // @require https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js
