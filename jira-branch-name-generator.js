@@ -32,7 +32,6 @@ GM_addStyle(`
 GM_addStyle(`
 .create-branch-btn {
     padding: 0 1em;
-    margin: 0 1em;
     cursor: pointer;
     -webkit-box-align: baseline;
     align-items: baseline;
@@ -74,13 +73,14 @@ GM_addStyle(`
 
 (function() {
     'use strict';
-    const lastBreadcrumb = _.last(document.querySelectorAll('div[class*="BreadcrumbsItem__BreadcrumbsItemElement"]'));
+    const lastBreadcrumb = _.last(document.querySelectorAll('div[class*="aui-page-header-main"]'));
 
     function createBranchName(){
-        const jiraTitle = _.first(document.querySelectorAll('h1')).innerText
-        const jiraId = lastBreadcrumb.innerText
-
-        copy(`${jiraId}-${_.kebabCase(jiraTitle)}`);
+        const jiraTitle = _.first(document.querySelectorAll('#summary-val')).innerText
+        const jiraId = _.first(document.querySelectorAll('a[class*="issue-link"]')).innerText
+        const clearedTitle = jiraTitle.toLowerCase().replaceAll("android", "").replaceAll("ios", "")
+        const kebabTitle = _.kebabCase(clearedTitle)
+        copy(`${jiraId}-${kebabTitle}`);
     }
 
     function copy(value) {
@@ -91,15 +91,14 @@ GM_addStyle(`
     }
 
     $(lastBreadcrumb).append(`
-            <div class="copy-branch-btn-wrapper">
+            <div class="copy-branch-btn-wrapper" style="top: 5px">
                <input type="button" class="create-branch-btn" value="Copy branch name" id="create-branch-name">
                <textarea style="opacity: 0" id="copy-branch-name">
             </div>
     `);
-
     $('#create-branch-name').on('click', () => {
         createBranchName();
-        $(".copy-branch-btn-wrapper").append(`<span id="copied-txt" style="position: absolute; top: 0; left: 60%; color: green;">Copied</span>`);
+        $(".copy-branch-btn-wrapper").append(`<span id="copied-txt" style="position: absolute; top: 10px; left: 60%; color: green;">Copied</span>`);
         setTimeout(() => $('#copied-txt').remove(), 3000)
     })
 })();
