@@ -11,7 +11,7 @@ Tampermonkey script for creating branch name out of the jira id and name.
 
   ![Utilities](./2.PNG "Utilities")
 
-* paste the raw url `https://raw.githubusercontent.com/avipunes/jira-branch-name-generator/master/jira-branch-name-generator.js` at the import from URL section
+* paste the raw url `https://raw.githubusercontent.com/adevone/jira-branch-name-generator/master/jira-branch-name-generator.js` at the import from URL section
 
   ![Import from URL](./3.PNG "Import from URL")
   
