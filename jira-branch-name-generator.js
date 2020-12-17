@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA branch name generator
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @author       You
 // @match        https://jira.*/browse/*
 // @require http://code.jquery.com/jquery-latest.js
